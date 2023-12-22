@@ -31,7 +31,7 @@ const Login = () => {
           progress: undefined,
           theme: "light",
         });
-        navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/dashboard");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -85,7 +85,7 @@ const Login = () => {
           progress: undefined,
           theme: "light",
         });
-        navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/dashboard");
       })
       .catch((error) => {
         console.log(error.message);

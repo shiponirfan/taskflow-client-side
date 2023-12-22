@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import task from "../../assets/banner/task.png";
 const HeroBanner = () => {
   return (
     <div
-      className="h-[calc(100vh-64px)]"
+      className="h-[calc(100vh-76px)]"
     >
       <div className="container mx-auto px-6 lg:px-8 gap-8  h-full justify-between items-center flex">
       <div className="lg:w-1/2 h-full w-full">
@@ -18,6 +19,12 @@ const HeroBanner = () => {
           <p>
           Elevate your productivity with our intuitive Task Management Platform. Seamlessly organize, prioritize, and conquer your tasks with efficiency and ease. Get started on the path to streamlined success.
           </p>
+          <Link
+              to="/login"
+              className="bg-bg-primary py-3 inline-block hover:bg-bg-secondary duration-300 text-white px-6  font-bold rounded"
+            >
+              Let’s Explore
+            </Link>
         </div>
         
       </div>

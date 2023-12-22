@@ -1,18 +1,15 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { toast } from "react-toastify";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
   const navItems = [
     {
       url: "/",
       title: "Home",
-    },
-    {
-      url: "/mobiles",
-      title: "Mobiles",
     },
     {
       url: "/about",
@@ -21,6 +18,14 @@ const Navbar = () => {
     {
       url: "/contact",
       title: "Contact Us",
+    },
+    {
+      url: "/blog",
+      title: "Blog",
+    },
+    {
+      url: "/faq",
+      title: "FAQ",
     },
   ];
   // Logout Button
@@ -37,6 +42,7 @@ const Navbar = () => {
           progress: undefined,
           theme: "light",
         });
+        navigate("/");
       })
       .catch((error) => {
         console.log(error.message);
@@ -201,7 +207,7 @@ const Navbar = () => {
               to="/login"
               className="bg-bg-primary py-2 hover:bg-bg-secondary duration-300 text-white px-6  font-bold rounded"
             >
-              Let’s Explore
+              Login
             </Link>
           )}
         </div>
