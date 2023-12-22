@@ -13,11 +13,13 @@ import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import Blog from "../pages/Blog/Blog";
 import Faq from "../pages/FAQ/Faq";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const Routes = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <ErrorPage/>,
     children: [
       {
         path: "/",
