@@ -12,10 +12,14 @@ import {
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { HelmetProvider } from "react-helmet-async";
+import AOS from "aos";
+import "aos/dist/aos.css";
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
-
+  useEffect(() => {
+    AOS.init({ duration: 1000, delay: 300 });
+  }, []);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();

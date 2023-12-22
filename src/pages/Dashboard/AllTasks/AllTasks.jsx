@@ -67,7 +67,8 @@ const AllTasks = () => {
     mutationKey: ["setRemove", user?.email],
     mutationFn: async (removeData) => {
       return await axios.delete(
-        `https://task-flow-server-side.vercel.app/task/${removeData}`);
+        `https://task-flow-server-side.vercel.app/task/${removeData}`
+      );
     },
     onSuccess: () => {
       toast.success("Delete Successfully", {
@@ -101,11 +102,15 @@ const AllTasks = () => {
     setRemove(id);
   };
   if (isLoading) {
-    return <h2>...Loading</h2>;
+    return (
+      <div className="fixed w-full bg-white  z-50 h-full flex justify-center items-center">
+        <span className="loading loading-ring w-20 text-bg-primary "></span>
+      </div>
+    );
   }
   return (
-    <div>
-      <div className="grid grid-cols-3 gap-6">
+    <div className="min-h-[calc(100vh-40px)]">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 xl:gap-6 gap-3">
         <div className=" rounded-xl space-y-8">
           <h2 className="text-xl font-bold mb-4 text-center">Todo</h2>
           {tasks
@@ -135,19 +140,22 @@ const AllTasks = () => {
 
                   <div className="card-actions items-end">
                     <div className="flex justify-between items-center w-full">
-                      <div className="badge badge-neutral font-medium p-4 text-white badge-outline">
-                        Deadline: {task?.deadline?.slice(0, 10)}
+                      <div className="badge badge-neutral font-medium p-3 text-xs text-white badge-outline">
+                        Time: {task?.deadline?.slice(0, 10)}
                       </div>
                       <button
                         onClick={() => handleSetOngoing(task?._id)}
-                        className="badge badge-accent font-medium p-4 text-white hover:bg-bg-primary"
+                        className="badge badge-accent font-medium p-3 text-xs text-white hover:bg-bg-primary"
                       >
                         Set Ongoing
                       </button>
                     </div>
                   </div>
-                  <button onClick={() => handleDelete(task?._id)} className=" text-3xl text-gray-500 hover:text-red-500 duration-300 absolute -top-3 right-0 ">
-                  <IoCloseCircleOutline />
+                  <button
+                    onClick={() => handleDelete(task?._id)}
+                    className=" text-3xl text-gray-500 hover:text-red-500 duration-300 absolute -top-3 right-0 "
+                  >
+                    <IoCloseCircleOutline />
                   </button>
                 </div>
               </div>
@@ -182,19 +190,22 @@ const AllTasks = () => {
 
                   <div className="card-actions items-end">
                     <div className="flex justify-between items-center w-full">
-                      <div className="badge badge-neutral font-medium p-4 text-white badge-outline">
-                        Deadline: {task?.deadline?.slice(0, 10)}
+                      <div className="badge badge-neutral font-medium p-3 text-xs text-white badge-outline">
+                        Time: {task?.deadline?.slice(0, 10)}
                       </div>
                       <button
                         onClick={() => handleSetCompleted(task?._id)}
-                        className="badge badge-secondary font-medium p-4 text-white  hover:bg-bg-primary"
+                        className="badge badge-secondary font-medium p-3 text-xs text-white  hover:bg-bg-primary"
                       >
                         Set Completed
                       </button>
                     </div>
                   </div>
-                  <button onClick={() => handleDelete(task?._id)} className=" text-3xl text-gray-500 hover:text-red-500 duration-300 absolute -top-3 right-0 ">
-                  <IoCloseCircleOutline />
+                  <button
+                    onClick={() => handleDelete(task?._id)}
+                    className=" text-3xl text-gray-500 hover:text-red-500 duration-300 absolute -top-3 right-0 "
+                  >
+                    <IoCloseCircleOutline />
                   </button>
                 </div>
               </div>
@@ -229,16 +240,19 @@ const AllTasks = () => {
 
                   <div className="card-actions items-end">
                     <div className="flex justify-between items-center w-full">
-                      <div className="badge badge-neutral font-medium p-4 text-white badge-outline">
-                        Deadline: {task?.deadline?.slice(0, 10)}
+                      <div className="badge text-xs badge-neutral font-medium p-3 text-white badge-outline">
+                        Time: {task?.deadline?.slice(0, 10)}
                       </div>
-                      <button className="badge badge-primary font-medium p-4 text-white ">
+                      <button className="badge badge-primary font-medium p-3 text-xs text-white ">
                         Completed
                       </button>
                     </div>
                   </div>
-                  <button onClick={() => handleDelete(task?._id)} className=" text-3xl text-gray-500 hover:text-red-500 duration-300 absolute -top-3 right-0 ">
-                  <IoCloseCircleOutline />
+                  <button
+                    onClick={() => handleDelete(task?._id)}
+                    className=" text-3xl text-gray-500 hover:text-red-500 duration-300 absolute -top-3 right-0 "
+                  >
+                    <IoCloseCircleOutline />
                   </button>
                 </div>
               </div>

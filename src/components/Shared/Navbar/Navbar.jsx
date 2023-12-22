@@ -23,10 +23,6 @@ const Navbar = () => {
       url: "/blog",
       title: "Blog",
     },
-    {
-      url: "/faq",
-      title: "FAQ",
-    },
   ];
   // Logout Button
   const handleLogoutBtn = () => {
